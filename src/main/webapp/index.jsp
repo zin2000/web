@@ -1,6 +1,6 @@
 
 <%
-   response.sendRedirect("spring/hello");
+   response.sendRedirect("main/hello");
 %>
 
 

@@ -781,6 +781,6 @@ standard deployment descriptor.
   </servlet>
   <servlet-mapping>
     <servlet-name>spring</servlet-name>
-    <url-pattern>/spring/*</url-pattern>
+    <url-pattern>/main/*</url-pattern>
   </servlet-mapping>
 </web-app>
