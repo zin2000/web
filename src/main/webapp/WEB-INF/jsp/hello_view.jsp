@@ -1,3 +1,4 @@
+<jsp:include page="/WEB-INF/jsp/menu.jsp" flush="true" />
 <html>
   <body bgcolor="white">
     <div style="font-size: 150%; color: #850F0F">
