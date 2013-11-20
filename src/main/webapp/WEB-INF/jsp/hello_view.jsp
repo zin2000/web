@@ -1,6 +1,11 @@
-<jsp:include page="/WEB-INF/jsp/menu.jsp" flush="true" />
 <html>
+<head>
+ <jsp:include page="/WEB-INF/jsp/menu_h.jsp" flush="true" />
+</head>
   <body bgcolor="white">
+    <jsp:include page="/WEB-INF/jsp/menu.jsp" flush="true" />
+    <br />
+    <br />
     <div style="font-size: 150%; color: #850F0F">
       <span>Enter your name: </span><br />
       <form method="post" action="hello">
