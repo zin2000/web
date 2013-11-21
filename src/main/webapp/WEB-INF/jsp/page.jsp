@@ -6,71 +6,49 @@
 	java.lang.String userAgent = (java.lang.String)request.getAttribute("user_agent");
 	java.lang.String userAgentName = "";
 	java.lang.Boolean isMobile = false;
+	java.lang.String[] userAgentNameMobileList = {"iPhone","iPod","Android","Windows Phone","BlackBerry"};
+	java.lang.String[] userAgentNameGameList = {"Wii","GameBoy","Nitro","PSP", "PS2","PLAYSTATION 3"};
+	java.lang.String[] userAgentNameList = {"MSIE","Chrome","Lunascape","Netscape","Firefox","Safari","Opera"};
 %>
 <html>
 <head>
 <%
-if(userAgent.indexOf("iPhone") > -1){
-	isMobile = true;
-	userAgentName = "iPhone";
-}else if(userAgent.indexOf("iPod") > -1){
-	isMobile = true;
-	userAgentName = "iPod";
-}else if(userAgent.indexOf("iPad") > -1){
-	isMobile = true;
-	userAgentName = "iPad";
-}else if(userAgent.indexOf("Android") > -1){
-	isMobile = true;
-	userAgentName = "Android";
-}else if(userAgent.indexOf("Windows Phone") > -1){
-	isMobile = true;
-	userAgentName = "Windows Phone";
-}else if(userAgent.indexOf("BlackBerry") > -1){
-	isMobile = true;
-	userAgentName = "BlackBerry";
-}else if(userAgent.indexOf("Wii") > -1){
-	isMobile = true;
-	userAgentName = "Wii";
-}else if(userAgent.indexOf("GameBoy") > -1){
-	isMobile = true;
-	userAgentName = "GameBoy";
-}else if(userAgent.indexOf("Nitro") > -1){
-	isMobile = true;
-	userAgentName = "Nitro";
-}else if(userAgent.indexOf("PSP") > -1){
-	isMobile = true;
-	userAgentName = "PSP";
-}else if(userAgent.indexOf("PS2") > -1){
-	isMobile = true;
-	userAgentName = "PS2";
-}else if(userAgent.indexOf("PLAYSTATION 3") > -1){
-	isMobile = true;
-	userAgentName = "PLAYSTATION 3";
-}else if(userAgent.indexOf("MSIE") > -1){
-	userAgentName = "MSIE";
-}else if(userAgent.indexOf("Chrome") > -1){
-	userAgentName = "Chrome";
-}else if(userAgent.indexOf("Lunascape") > -1){
-	userAgentName = "Lunascape";
-}else if(userAgent.indexOf("Netscape") > -1){
-	userAgentName = "Netscape";
-}else if(userAgent.indexOf("Firefox") > -1){
-	userAgentName = "Firefox";
-}else if(userAgent.indexOf("Safari") > -1){
-	userAgentName = "Safari";
-}else if(userAgent.indexOf("Opera") > -1){
-	userAgentName = "Opera";
-}else{
+if(userAgentName.equals("")){
+  for(String userAgentIs : userAgentNameMobileList){
+    if(userAgent.indexOf(userAgentIs) > -1){
+	  isMobile = true;
+	  userAgentName = userAgentIs;
+	  break;
+    }
+  }
+}
+if(userAgentName.equals("")){
+  for(String userAgentIs : userAgentNameGameList){
+	  if(userAgent.indexOf(userAgentIs) > -1){
+		isMobile = true;
+		userAgentName = userAgentIs;
+		break;
+	  }
+  }
+}
+if(userAgentName.equals("")){
+  for(String userAgentIs : userAgentNameList){
+	  if(userAgent.indexOf(userAgentIs) > -1){
+		userAgentName = userAgentIs;
+		break;
+	  }
+  }
+}
+if(userAgentName.equals("")){
 	userAgentName = "Other?";
 }
-
 if(isMobile){
 %>
-　　<jsp:include page="/WEB-INF/jsp/menuMobile_h.jsp" flush="true" />
+<jsp:include page="/WEB-INF/jsp/menuMobile_h.jsp" flush="true" />
 <%
 }else{
 %>
-　　<jsp:include page="/WEB-INF/jsp/menu_h.jsp" flush="true" />
+<jsp:include page="/WEB-INF/jsp/menu_h.jsp" flush="true" />
 <%
 }
 %>
@@ -80,11 +58,11 @@ if(isMobile){
 <%
 if(isMobile){
 %>
-      <jsp:include page="/WEB-INF/jsp/menuMobile.jsp" flush="true" />
+<jsp:include page="/WEB-INF/jsp/menuMobile.jsp" flush="true" />
 <%
 }else{
 %>
-      <jsp:include page="/WEB-INF/jsp/menu.jsp" flush="true" />
+<jsp:include page="/WEB-INF/jsp/menu.jsp" flush="true" />
 <%
 }
 %>
