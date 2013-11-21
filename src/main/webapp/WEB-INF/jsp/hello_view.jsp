@@ -1,11 +1,20 @@
 <html>
 <head>
- <jsp:include page="/WEB-INF/jsp/menu_h.jsp" flush="true" />
+<!-- <jsp:include page="/WEB-INF/jsp/menu_h.jsp" flush="true" /> -->
+<jsp:include page="/WEB-INF/jsp/menuMobile_h.jsp" flush="true" /> 
 </head>
-  <body bgcolor="white">
-    <jsp:include page="/WEB-INF/jsp/menu.jsp" flush="true" />
-    <br />
-    <br />
+<body bgcolor="white">
+<!-- <jsp:include page="/WEB-INF/jsp/menu.jsp" flush="true" /> -->
+<div data-role="page">
+  <jsp:include page="/WEB-INF/jsp/menuMobile.jsp" flush="true" />
+  <div data-role="content">
+    <p>Topページ</p>
+  </div>
+  <footer data-role="footer">
+    <h1>フッター</h1>
+  </footer>
+</div>
+<!--
     <div style="font-size: 150%; color: #850F0F">
       <span>Enter your name: </span><br />
       <form method="post" action="hello">
@@ -23,6 +32,6 @@
           }
       %>
     </div>
+-->
   </body>
 </html>
-

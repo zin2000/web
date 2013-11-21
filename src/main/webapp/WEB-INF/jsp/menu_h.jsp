@@ -40,4 +40,3 @@
 }
 -->
 </style>
-<meta name="viewport" content="width=device-width , user-scalable=no , inicial-scale=1 , maximum-scale=1" />
