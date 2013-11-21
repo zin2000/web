@@ -7,7 +7,7 @@
 	java.lang.String userAgentName = "";
 	java.lang.Boolean isMobile = false;
 	java.lang.String[] userAgentNameMobileList = {"iPhone","iPod","Android","Windows Phone","BlackBerry"};
-	java.lang.String[] userAgentNameGameList = {"Wii","GameBoy","Nitro","PSP", "PS2","PLAYSTATION 3"};
+	java.lang.String[] userAgentNameGameList = {"Wii","GameBoy","Nitro","PSP", "PS2","PLAYSTATION 3","3DS"};
 	java.lang.String[] userAgentNameList = {"MSIE","Chrome","Lunascape","Netscape","Firefox","Safari","Opera"};
 %>
 <html>
