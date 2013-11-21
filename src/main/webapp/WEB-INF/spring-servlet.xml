@@ -1,9 +1,13 @@
 <?xml version='1.0' encoding='utf-8'?>
 <beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
-   <bean name="/hello" class="helloworld.GreetingController"></bean>
    <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
       <property name="prefix" value="/WEB-INF/jsp/" />
       <property name="suffix" value=".jsp" />
    </bean>
-   <bean name="/hellolo" class="helloworld.GreetingController"></bean>
+   <bean name="/top" class="controller.TopController"></bean>
+   <bean name="/info" class="controller.InfoController"></bean>
+   <bean name="/gallery" class="controller.GalleryController"></bean>
+   <bean name="/oldcoin" class="controller.OldCoinController"></bean>
+   <bean name="/xstitch" class="controller.XstitchController"></bean>
+   <bean name="/game" class="controller.GameController"></bean>
 </beans>
