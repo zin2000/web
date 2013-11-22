@@ -4,10 +4,17 @@
       <property name="prefix" value="/WEB-INF/jsp/" />
       <property name="suffix" value=".jsp" />
    </bean>
+   <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+	<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+	<property name="url" value="jdbc:mysql://localhost/test" />
+	<property name="username" value="root" />
+	<property name="password" value="admin" />
+   </bean>
    <bean name="/top" class="controller.TopController"></bean>
    <bean name="/info" class="controller.InfoController"></bean>
    <bean name="/gallery" class="controller.GalleryController"></bean>
    <bean name="/oldcoin" class="controller.OldCoinController"></bean>
    <bean name="/xstitch" class="controller.XstitchController"></bean>
    <bean name="/game" class="controller.GameController"></bean>
+   <bean name="/db" class="controller.DbController"></bean>
 </beans>

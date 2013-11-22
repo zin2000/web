@@ -1,12 +1,13 @@
-<div id="globalnavi">
-<ul>
-<li><a href="#">Home</a></li>
-<li><a href="#">menu</a></li>
-<li><a href="#">menu</a></li>
-<li><a href="#">menu</a></li>
-<li><a href="#">menu</a></li>
-<li><a href="#">menu</a></li>
-<li><a href="#">menu</a></li>
-</ul>
+<div id="globalfooter">
+ <div>
+  <div id="globalnavi">
+   <ul>
+    <li><a href="#">Info</a></li>
+    <li><a href="#">Gallery</a></li>
+    <li><a href="#">OldCoin</a></li>
+    <li><a href="#">Xstitch</a></li>
+    <li><a href="#">Game</a></li>
+   </ul>
+  </div>
+ </div>
 </div>
-<br />

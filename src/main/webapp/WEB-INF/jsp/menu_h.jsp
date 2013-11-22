@@ -25,7 +25,14 @@
   margin: 0;
   padding: 0;
 }
-
+#globalfooter div{
+  text-align: center;
+  display:block;
+  padding: 0;
+  width: 100%;
+  background-color: black;
+  color: white;
+}
 #globalnavi a{
   text-align: center;
   display:block;

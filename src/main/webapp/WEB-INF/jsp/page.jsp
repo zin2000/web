@@ -2,6 +2,7 @@
 {
 	//画面表示に必要な項目を取得する
 	java.lang.String pageInfo = (java.lang.String)request.getAttribute("page_info");
+	java.lang.String pageContents = (java.lang.String)request.getAttribute("page_contents");
 	java.lang.String footerInfo = (java.lang.String)request.getAttribute("footer_info");
 	java.lang.String userAgent = (java.lang.String)request.getAttribute("user_agent");
 	java.lang.String userAgentName = "";
@@ -68,10 +69,24 @@ if(isMobile){
 %>
       <div data-role="content">
       <p><%=pageInfo%></p>
+      <p><%=pageContents%></p>
       </div>
-      <footer data-role="footer">
-        <h1><%="your access from "%><%=userAgentName%><%=" "%><%=footerInfo%></h1>
-      </footer>
+<%
+if(isMobile){
+%>
+<footer data-role="footer">
+<h1><%="your access from "%><%=userAgentName%><%=" "%><%=footerInfo%></h1>
+</footer><%
+}else{
+%>
+<div id="globalfooter">
+<div><%="your access from "%><%=userAgentName%><%=" "%><%=footerInfo%></div>
+</div>
+<%
+}
+%>
+
+
     </div>
   </body>
 </html>
