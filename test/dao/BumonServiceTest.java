@@ -10,17 +10,17 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import dto.Bumon;
 
-import service.IBumonService;
+import service.BumonService;
 
 public class BumonServiceTest {
 
-    IBumonService service;
+    BumonService service;
 
     @Before
     public void setUp() {
         ApplicationContext context = 
         new ClassPathXmlApplicationContext("applicationContext.xml");
-        service = (IBumonService) context.getBean("bumonService");
+        service = (BumonService) context.getBean("bumonService");
     }
 
     @After
@@ -37,7 +37,7 @@ public class BumonServiceTest {
             // 部門名が正しいか？
             assertEquals("ESC", service.getBumon("000001").getNmBumon());
         } finally {
-            //service.removeBumon("000001");
+            service.removeBumon("000001");
         }
     }
 

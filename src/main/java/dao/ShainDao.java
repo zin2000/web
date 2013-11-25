@@ -4,19 +4,14 @@ import java.util.List;
 
 import dto.Shain;
 
-public class ShainDao implements IShainDao {
+public interface ShainDao {
+    void insert(Shain shain);
 
-    public void insert(Shain shain) {}
+    Shain load(String cdShain);
 
-    public Shain load(String cdShain) {
-        return null;
-    }
+    void update(Shain shain);
 
-    public void update(Shain shain) {}
+    void delete(String cdShain);
 
-    public void delete(String cdShain) {}
-
-    public List<Shain> findAll() {
-        return null;
-    }
+    List<Shain> findAll();
 }

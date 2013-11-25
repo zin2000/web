@@ -2,33 +2,14 @@ package service;
 
 import java.util.List;
 
-import dao.IBumonDao;
 import dto.Bumon;
 
-public class BumonService implements IBumonService {
-    private IBumonDao bumonDao;
+public interface BumonService {
+    void registBumon(Bumon bumon);
 
-    public void registBumon(Bumon bumon) {
-        bumonDao.insert(bumon);
-    }
+    Bumon getBumon(String cdBumon);
 
-    public Bumon getBumon(String cdBumon) {
-        return bumonDao.load(cdBumon);
-    }
+    List<Bumon> getAllBumon();
 
-    public List<Bumon> getAllBumon() {
-        return bumonDao.findAll();
-    }
-
-    public void removeBumon(String cdBumon) {
-        bumonDao.delete(cdBumon);
-    }
-
-    public IBumonDao getBumonDao() {
-        return bumonDao;
-    }
-
-    public void setBumonDao(IBumonDao bumonDao) {
-        this.bumonDao = bumonDao;
-    }
+    void removeBumon(String cdBumon);
 }

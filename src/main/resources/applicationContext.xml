@@ -13,24 +13,30 @@
         ">
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
 	 <property name="driverClassName" value="com.mysql.jdbc.Driver" />
-	 <property name="url" value="jdbc:mysql://localhost/test" />
+	 <property name="url" value="jdbc:mysql://localhost/zwsdb" />
 	 <property name="username" value="root" />
 	 <property name="password" value="admin" />
 	</bean>
 	<!-- DAO -->
-	<bean id="bumonDao" class="dao.BumonDao">
-	<property name="dataSource" ref="dataSource" />
+	<bean id="bumonDao" class="dao.jdbc.BumonDaoImpl">
+		<property name="dataSource" ref="dataSource" />
 	</bean>
-	<bean id="shainDao" class="dao.ShainDao"></bean>
+	<bean id="donjonItemDao" class="dao.jdbc.DonjonItemDaoImpl">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	<bean id="shainDao" class="dao.jdbc.ShainDaoImpl"></bean>
 	
 	<!-- Service -->
-	<bean id="bumonService" class="service.BumonService">
+	<bean id="bumonService" class="service.impl.BumonServiceImpl">
 		<property name="bumonDao" ref="bumonDao"/>
 	</bean>
-	<bean id="shainService" class="service.ShainService">
+	<bean id="donjonItemService" class="service.impl.DonjonItemServiceImpl">
+		<property name="donjonItemDao" ref="donjonItemDao"/>
+	</bean>
+	<bean id="shainService" class="service.impl.ShainServiceImpl">
 		<property name="shainDao" ref="shainDao" />
 	</bean>
-	<bean id="setupService" class="service.SetupService">
+	<bean id="setupService" class="service.impl.SetupServiceImpl">
 		<property name="shainDao" ref="shainDao" />
 		<property name="bumonDao" ref="bumonDao" />
 	</bean>
