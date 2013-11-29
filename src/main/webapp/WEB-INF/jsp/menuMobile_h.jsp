@@ -1,4 +1,8 @@
+<%@ page session="false" %>
+<%@ page pageEncoding="UTF-8" isELIgnored="false"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css" />
+<link rel="stylesheet" href="<c:url value="/resources/css/menu.css" />" type="text/css" media="screen" />
 <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
 <script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />

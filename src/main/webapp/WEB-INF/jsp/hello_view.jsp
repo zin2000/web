@@ -1,3 +1,5 @@
+<%@ page session="false" %>
+<%@ page pageEncoding="UTF-8" isELIgnored="false"%>
 <html>
 <head>
 <!-- <jsp:include page="/WEB-INF/jsp/menu_h.jsp" flush="true" /> -->

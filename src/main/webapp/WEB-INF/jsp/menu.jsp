@@ -1,3 +1,5 @@
+<%@ page session="false" %>
+<%@ page pageEncoding="UTF-8" isELIgnored="false"%>
 <div id="globalfooter">
  <div>
   <div id="globalnavi">

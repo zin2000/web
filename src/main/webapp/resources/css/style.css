@@ -23,6 +23,7 @@
   width: 100%;
   background-color: black;
   color: white;
+  position:fixed
 }
 #globalnavi a{
   text-align: center;
