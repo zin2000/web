@@ -798,6 +798,10 @@ standard deployment descriptor.
 
   <filter-mapping>
     <filter-name>CharacterEncodingFilter</filter-name>
-    <url-pattern>/*</url-pattern>
+    <url-pattern>/main/*</url-pattern>
   </filter-mapping>
+  <servlet-mapping>
+    <servlet-name>spring</servlet-name>
+    <url-pattern>*.form</url-pattern>
+  </servlet-mapping>
 </web-app>

@@ -50,6 +50,8 @@ if(isMobile){%>
 <%}%>
 </head>
 <body bgcolor="white">
+<br />
+<br />
 <div>
 <%if(isMobile){%>
 <jsp:include page="/WEB-INF/jsp/menuMobile.jsp" flush="true" />
@@ -60,15 +62,11 @@ if(isMobile){%>
   <p><%=pageInfo%></p>
   <p><%=pageContents%></p>
  </div>
-<%if(isMobile){%>
-<footer data-role="footer">
-<h1><%="your access from "%><%=userAgentName%><%=" "%><%=footerInfo%></h1>
-</footer>
-<%}else{%>
-<div id="globalfooter">
-<div><%="your access from "%><%=userAgentName%><%=" "%><%=footerInfo%></div>
-</div>
-<%}%>
+ <div id="globalfooter">
+  <ul id="footermenu">
+   <li><%="your access from "%><%=userAgentName%><%=" "%><%=footerInfo%></li>
+  </ul>
+ </div>
 </div>
 </body>
 </html>

@@ -24,6 +24,9 @@
 	<bean id="donjonItemDao" class="dao.jdbc.DonjonItemDaoImpl">
 		<property name="dataSource" ref="dataSource" />
 	</bean>
+	<bean id="oldcoinDao" class="dao.jdbc.OldcoinDaoImpl">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
 	<bean id="shainDao" class="dao.jdbc.ShainDaoImpl"></bean>
 	
 	<!-- Service -->
@@ -32,6 +35,9 @@
 	</bean>
 	<bean id="donjonItemService" class="service.impl.DonjonItemServiceImpl">
 		<property name="donjonItemDao" ref="donjonItemDao"/>
+	</bean>
+	<bean id="oldcoinService" class="service.impl.OldcoinServiceImpl">
+		<property name="oldcoinDao" ref="oldcoinDao"/>
 	</bean>
 	<bean id="shainService" class="service.impl.ShainServiceImpl">
 		<property name="shainDao" ref="shainDao" />

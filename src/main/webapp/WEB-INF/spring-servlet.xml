@@ -17,4 +17,19 @@
    <bean name="/xstitch" class="controller.XstitchController"></bean>
    <bean name="/game" class="controller.GameController"></bean>
    <bean name="/db" class="controller.DbController"></bean>
+
+  <!-- (3)リクエスト・コントローラの設定  -->
+  <bean name="/upload" id="fileUploadController"
+    class="controller.FileUploadController">
+    <property name="formView" value="inputFile" />
+    <property name="successView" value="finishUpload" />
+    <property name="commandClass"
+    value="io.FileUploadCommand" />
+  </bean>
+
+  <!-- (4)マルチパート・サポートの設定 -->
+  <bean id="multipartResolver" class=
+    "org.springframework.web.multipart.commons.CommonsMultipartResolver">
+    <property name="maxUploadSize" value="100000" />
+  </bean>
 </beans>
