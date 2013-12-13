@@ -19,12 +19,11 @@
    <bean name="/db" class="controller.DbController"></bean>
 
   <!-- (3)リクエスト・コントローラの設定  -->
-  <bean name="/upload" id="fileUploadController"
+  <bean name="/admin/upload" id="fileUploadController"
     class="controller.FileUploadController">
     <property name="formView" value="inputFile" />
     <property name="successView" value="finishUpload" />
-    <property name="commandClass"
-    value="io.FileUploadCommand" />
+    <property name="commandClass" value="io.FileUploadCommand" />
   </bean>
 
   <!-- (4)マルチパート・サポートの設定 -->
