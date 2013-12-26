@@ -43,7 +43,9 @@
   position: relative;
   width: auto;
   float: left;
-  margin: 5px;
+  margin-Top: 10px;
+  margin-Bottom: 10px;
+  margin-Left: 5px;
   padding: 0;
   text-align: center;
 }
