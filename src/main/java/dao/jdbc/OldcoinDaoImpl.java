@@ -6,6 +6,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.commons.configuration.Configuration;
+import org.apache.commons.configuration.ConfigurationException;
+import org.apache.commons.configuration.PropertiesConfiguration;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.jdbc.core.simple.ParameterizedRowMapper;
 import org.springframework.jdbc.core.simple.SimpleJdbcDaoSupport;
@@ -19,7 +22,8 @@ import dto.OldcoinDetail;
 
 @SuppressWarnings("deprecation")
 public class OldcoinDaoImpl extends SimpleJdbcDaoSupport implements OldcoinDao {
-
+	
+	
     /** INSERT */
     public static final String INSERT = 
 "INSERT INTO BUMON (CD_BUMON, NM_BUMON) VALUE (?, ?)";
@@ -48,10 +52,16 @@ public class OldcoinDaoImpl extends SimpleJdbcDaoSupport implements OldcoinDao {
 
     /** FIND ALL */
     public static final String FIND_ALL = "SELECT * FROM DONJON_EQU_ITEM_DETAIL";
-
+    
+    public static Configuration config;
+    
+    public void init() throws ConfigurationException {
+    	config = new PropertiesConfiguration("OldCoinDaoImpl.properties");
+    }
+    
     @SuppressWarnings("deprecation")
-	public void insert(Bumon bumon) {
-        getSimpleJdbcTemplate().update(INSERT, bumon.getCdBumon(),
+	public void insert(Bumon bumon) throws ConfigurationException {
+    	getSimpleJdbcTemplate().update(INSERT, bumon.getCdBumon(),
                 bumon.getNmBumon());
     }
 
@@ -70,8 +80,9 @@ public class OldcoinDaoImpl extends SimpleJdbcDaoSupport implements OldcoinDao {
                 new ParameterizedBumonRowMapper());
     }
     
-	public List<OldcoinDetail> findPage(int page) {
-    	return getSimpleJdbcTemplate().query(SELECT_COIN+LIMIT_PAGE,
+	public List<OldcoinDetail> findPage(int page) throws ConfigurationException {
+    	init();
+		return getSimpleJdbcTemplate().query(config.getString("SELECT_COIN")+config.getString("LIMIT_PAGE"),
                 new ParameterizedBumonRowMapper(),
                 page);
     }

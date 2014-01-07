@@ -52,17 +52,28 @@ public class OldCoinController extends BaseZwsController {
 		StringBuffer sb = new StringBuffer();
 		sb.append("<br />");
 		if(page >= 10){
-			sb.append("<form method='post' action='oldcoin'>").
+			//sb.append("<form method='post' action='oldcoin'>").
+			//append("<input type='hidden' name='page' value='"+(page-10)+"'>").
+			//append("<input type=submit name='submit' value='←back'>").
+			//append("</form>");
+			
+			sb.append("<form name='back' method='post' action='oldcoin'>").
 			append("<input type='hidden' name='page' value='"+(page-10)+"'>").
-			append("<input type=submit name='submit' value='←back'>").
-			append("</form>");
+			append("</form>").
+			append("<a href='javascript:back.submit()'>Back</a>").
+			append("<img src=\"<c:url value=\"/resources/img/sp.png\" />\" width=\"20\" />");
 		}
 		
 		if(page+10 < maxPage){
-		sb.append("<form method='post' action='oldcoin'>").
-		append("<input type='hidden' name='page' value='"+(page+10)+"'>").
-		append("<input type=submit name='submit' value='next→'>").
-		append("</form>");
+			//sb.append("<form method='post' action='oldcoin'>").
+			//append("<input type='hidden' name='page' value='"+(page+10)+"'>").
+			//append("<input type=submit name='submit' value='next→'>").
+			//append("</form>");
+			
+			sb.append("<a href='javascript:next.submit()'>Next</a>").
+			append("<form name='next' method='post' action='oldcoin'>").
+			append("<input type='hidden' name='page' value='"+(page+10)+"'>").
+			append("</form>");
 		}
 		view.addObject("page_contents", (getItemListForTableString(beanList))+sb.toString());
 		return view;

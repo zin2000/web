@@ -72,6 +72,11 @@
     <version>2.4</version>
     <optional>false</optional>
    </dependency>
+   <dependency>
+	<groupId>commons-configuration</groupId>
+	<artifactId>commons-configuration</artifactId>
+	<version>1.6</version>
+   </dependency>
    </dependencies>
    <build>
       <finalName>zins-work-shop</finalName>
