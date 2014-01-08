@@ -21,7 +21,7 @@ import dto.DonjonEquItem;
 import dto.OldcoinDetail;
 
 @SuppressWarnings("deprecation")
-public class OldcoinDaoImpl extends SimpleJdbcDaoSupport implements OldcoinDao {
+public class OldcoinDaoImpl extends BaseJdbcDaoImpl implements OldcoinDao {
 	
 	
     /** INSERT */
@@ -37,7 +37,8 @@ public class OldcoinDaoImpl extends SimpleJdbcDaoSupport implements OldcoinDao {
 "SELECT od.oldcoin_detail_id, od.add_date, od.name, od.front_img_url, od.back_img_url, of.name as font_name, om.name as material_name, od.start_year, od.end_year FROM OLDCOIN_DETAIL od left outer join OLDCOIN_FONT of ON(od.font_id=of.oldcoin_font_id) left outer join OLDCOIN_MATERIAL om ON(od.material_id=om.oldcoin_material_id)";
     
     /** SELECT */
-    public static final String SELECT_COIN = "SELECT od.oldcoin_detail_id, od.add_date, od.name, od.front_img_url, od.back_img_url, of.name as font_name, om.name as material_name, od.start_year, od.end_year FROM OLDCOIN_DETAIL od left outer join OLDCOIN_FONT of ON(od.font_id=of.oldcoin_font_id) left outer join OLDCOIN_MATERIAL om ON(od.material_id=om.oldcoin_material_id) ";
+    public static final String SELECT_COIN = 
+"SELECT od.oldcoin_detail_id, od.add_date, od.name, od.front_img_url, od.back_img_url, of.name as font_name, om.name as material_name, od.start_year, od.end_year FROM OLDCOIN_DETAIL od left outer join OLDCOIN_FONT of ON(od.font_id=of.oldcoin_font_id) left outer join OLDCOIN_MATERIAL om ON(od.material_id=om.oldcoin_material_id) ";
 
     /** LIMIT_PAGE */
     public static final String LIMIT_PAGE = "LIMIT ?, 10";
@@ -52,13 +53,7 @@ public class OldcoinDaoImpl extends SimpleJdbcDaoSupport implements OldcoinDao {
 
     /** FIND ALL */
     public static final String FIND_ALL = "SELECT * FROM DONJON_EQU_ITEM_DETAIL";
-    
-    public static Configuration config;
-    
-    public void init() throws ConfigurationException {
-    	config = new PropertiesConfiguration("OldCoinDaoImpl.properties");
-    }
-    
+        
     @SuppressWarnings("deprecation")
 	public void insert(Bumon bumon) throws ConfigurationException {
     	getSimpleJdbcTemplate().update(INSERT, bumon.getCdBumon(),
@@ -81,8 +76,7 @@ public class OldcoinDaoImpl extends SimpleJdbcDaoSupport implements OldcoinDao {
     }
     
 	public List<OldcoinDetail> findPage(int page) throws ConfigurationException {
-    	init();
-		return getSimpleJdbcTemplate().query(config.getString("SELECT_COIN")+config.getString("LIMIT_PAGE"),
+		return getSimpleJdbcTemplate().query(findSql("SELECT_COIN")+findSql("LIMIT_PAGE"),
                 new ParameterizedBumonRowMapper(),
                 page);
     }
