@@ -62,6 +62,8 @@ if(isMobile){%>
   <p><%=pageInfo%></p>
   <p><%=pageContents%></p>
  </div>
+ <br />
+ <br />
  <div id="globalfooter">
   <ul id="footermenu">
    <li><%="your access from "%><%=userAgentName%><%=" "%><%=footerInfo%></li>

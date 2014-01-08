@@ -2,19 +2,10 @@ package dao.jdbc;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
-import org.apache.commons.configuration.Configuration;
-import org.apache.commons.configuration.ConfigurationException;
-import org.apache.commons.configuration.PropertiesConfiguration;
-import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.jdbc.core.simple.ParameterizedRowMapper;
-import org.springframework.jdbc.core.simple.SimpleJdbcDaoSupport;
 
-import dao.BumonDao;
-import dao.DonjonItemDao;
 import dao.OldcoinDao;
 import dto.Bumon;
 import dto.DonjonEquItem;
@@ -22,67 +13,34 @@ import dto.OldcoinDetail;
 
 @SuppressWarnings("deprecation")
 public class OldcoinDaoImpl extends BaseJdbcDaoImpl implements OldcoinDao {
-	
-	
-    /** INSERT */
-    public static final String INSERT = 
-"INSERT INTO BUMON (CD_BUMON, NM_BUMON) VALUE (?, ?)";
-
-    /** SELECT */
-    public static final String SELECT = 
-"SELECT * FROM BUMON WHERE CD_BUMON = ?";
-
-    /** SELECT */
-    public static final String SELECT_ITEM = 
-"SELECT od.oldcoin_detail_id, od.add_date, od.name, od.front_img_url, od.back_img_url, of.name as font_name, om.name as material_name, od.start_year, od.end_year FROM OLDCOIN_DETAIL od left outer join OLDCOIN_FONT of ON(od.font_id=of.oldcoin_font_id) left outer join OLDCOIN_MATERIAL om ON(od.material_id=om.oldcoin_material_id)";
-    
-    /** SELECT */
-    public static final String SELECT_COIN = 
-"SELECT od.oldcoin_detail_id, od.add_date, od.name, od.front_img_url, od.back_img_url, of.name as font_name, om.name as material_name, od.start_year, od.end_year FROM OLDCOIN_DETAIL od left outer join OLDCOIN_FONT of ON(od.font_id=of.oldcoin_font_id) left outer join OLDCOIN_MATERIAL om ON(od.material_id=om.oldcoin_material_id) ";
-
-    /** LIMIT_PAGE */
-    public static final String LIMIT_PAGE = "LIMIT ?, 10";
-    
-    /** UPDATE */
-    public static final String UPDATE = 
-"UPDATE BUMON SET NM_BUMON = ? WHERE CD_BUMON = ?";
-
-    /** DELETE */
-    public static final String DELETE = 
-"DELETE FROM BUMON WHERE CD_BUMON = ?";
-
-    /** FIND ALL */
-    public static final String FIND_ALL = "SELECT * FROM DONJON_EQU_ITEM_DETAIL";
-        
-    @SuppressWarnings("deprecation")
-	public void insert(Bumon bumon) throws ConfigurationException {
-    	getSimpleJdbcTemplate().update(INSERT, bumon.getCdBumon(),
+	        
+	public void insert(Bumon bumon) {
+    	getSimpleJdbcTemplate().update(findSql("INSERT"), bumon.getCdBumon(),
                 bumon.getNmBumon());
     }
 
-    @SuppressWarnings("deprecation")
 	public void update(Bumon bumon) {
-        getSimpleJdbcTemplate().update(UPDATE, bumon.getNmBumon(),
+        getSimpleJdbcTemplate().update(findSql("UPDATE"), bumon.getNmBumon(),
                 bumon.getCdBumon());
     }
 
 	public void delete(String cdBumon) {
-        getSimpleJdbcTemplate().update(DELETE, cdBumon);
+        getSimpleJdbcTemplate().update(findSql("DELETE"), cdBumon);
     }
 
 	public List<OldcoinDetail> findAll() {
-    	return getSimpleJdbcTemplate().query(SELECT_COIN,
+    	return getSimpleJdbcTemplate().query(findSql("SELECT_COIN"),
                 new ParameterizedBumonRowMapper());
     }
     
-	public List<OldcoinDetail> findPage(int page) throws ConfigurationException {
+	public List<OldcoinDetail> findPage(int page){
 		return getSimpleJdbcTemplate().query(findSql("SELECT_COIN")+findSql("LIMIT_PAGE"),
                 new ParameterizedBumonRowMapper(),
                 page);
     }
     
 	public int findCountAll() {
-    	return getSimpleJdbcTemplate().queryForInt("SELECT COUNT(*) FROM OLDCOIN_DETAIL");
+    	return getSimpleJdbcTemplate().queryForInt(findSql("SELECT_COUNT"));
     }
 
     static class ParameterizedBumonRowMapper 

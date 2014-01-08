@@ -2,8 +2,6 @@ package service.impl;
 
 import java.util.List;
 
-import org.apache.commons.configuration.ConfigurationException;
-
 import service.BumonService;
 import service.DonjonItemService;
 import service.OldcoinService;
@@ -32,7 +30,7 @@ public class OldcoinServiceImpl implements OldcoinService {
 	}
 
 	@Override
-	public List<OldcoinDetail> queryPageDetailData(int page) throws ConfigurationException {
+	public List<OldcoinDetail> queryPageDetailData(int page){
 		return getOldcoinDao().findPage(page);
 	}
 

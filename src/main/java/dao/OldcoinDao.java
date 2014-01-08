@@ -2,8 +2,6 @@ package dao;
 
 import java.util.List;
 
-import org.apache.commons.configuration.ConfigurationException;
-
 import dto.DonjonEquItem;
 import dto.OldcoinDetail;
 
@@ -18,7 +16,7 @@ public interface OldcoinDao {
     
     List<OldcoinDetail> findAll();
     
-    List<OldcoinDetail> findPage(int page) throws ConfigurationException;
+    List<OldcoinDetail> findPage(int page);
     
     int findCountAll();
 

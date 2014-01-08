@@ -61,7 +61,7 @@ public class OldCoinController extends BaseZwsController {
 			append("<input type='hidden' name='page' value='"+(page-10)+"'>").
 			append("</form>").
 			append("<a href='javascript:back.submit()'>Back</a>").
-			append("<img src=\"<c:url value=\"/resources/img/sp.png\" />\" width=\"20\" />");
+			append("<img src=\"/zins-work-shop/resources/img/sp.png\" width=\"20\" />");
 		}
 		
 		if(page+10 < maxPage){
