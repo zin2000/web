@@ -16,7 +16,7 @@ import dto.Bumon;
 import dto.DonjonEquItem;
 
 @SuppressWarnings("deprecation")
-public class DonjonItemDaoImpl extends SimpleJdbcDaoSupport implements DonjonItemDao {
+public class DonjonItemDaoImpl extends BaseJdbcDaoImpl implements DonjonItemDao {
 
     /** INSERT */
     public static final String INSERT = 
@@ -60,7 +60,7 @@ public class DonjonItemDaoImpl extends SimpleJdbcDaoSupport implements DonjonIte
 
     @SuppressWarnings("deprecation")
 	public List<DonjonEquItem> findAll() {
-    	return getSimpleJdbcTemplate().query(FIND_ALL,
+    	return getSimpleJdbcTemplate().query(findSql("FIND_ALL"),
                 new ParameterizedBumonRowMapper());
     }
 
@@ -97,19 +97,57 @@ implements ParameterizedRowMapper<DonjonEquItem> {
 	}
 
 	@Override
+	public List<DonjonEquItem> queryItemAll() {
+		// TODO Auto-generated method stub
+		return getSimpleJdbcTemplate().query(
+				findSql("SELECT_ITEM"),
+                new ParameterizedBumonRowMapper()
+                );
+	}
+	
+	@Override
 	public List<DonjonEquItem> queryItemVersion(int itemVersionId) {
 		// TODO Auto-generated method stub
 		return getSimpleJdbcTemplate().query(
-				SELECT_ITEM,
+				findSql("SELECT_ITEM")+findSql("WHERE_VERSION"),
                 new ParameterizedBumonRowMapper(),
-                itemVersionId);		
+                itemVersionId);
 	}
 
 	@Override
 	public List<DonjonEquItem> queryItemVersionToVersion(int itemVersionId) {
 		// TODO Auto-generated method stub
-		return getSimpleJdbcTemplate().query(SELECT_ITEM,
-                new ParameterizedBumonRowMapper());
+		return getSimpleJdbcTemplate().query(
+				findSql("SELECT_ITEM")+findSql("WHERE_UPPER_VERSION"),
+                new ParameterizedBumonRowMapper(),
+                itemVersionId);
+	}
+	
+	@Override
+	public List<DonjonEquItem> queryEquItemAll() {
+		// TODO Auto-generated method stub
+		return getSimpleJdbcTemplate().query(
+				findSql("SELECT_EQU_ITEM"),
+                new ParameterizedBumonRowMapper()
+                );
+	}
+	
+	@Override
+	public List<DonjonEquItem> queryEquItemVersion(int itemVersionId) {
+		// TODO Auto-generated method stub
+		return getSimpleJdbcTemplate().query(
+				findSql("SELECT_EQU_ITEM")+findSql("WHERE_VERSION"),
+                new ParameterizedBumonRowMapper(),
+                itemVersionId);
+	}
+
+	@Override
+	public List<DonjonEquItem> queryEquItemVersionToVersion(int itemVersionId) {
+		// TODO Auto-generated method stub
+		return getSimpleJdbcTemplate().query(
+				findSql("SELECT_EQU_ITEM")+findSql("WHERE_UPPER_VERSION"),
+                new ParameterizedBumonRowMapper(),
+                itemVersionId);
 	}
 
 	@Override

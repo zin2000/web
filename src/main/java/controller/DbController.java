@@ -1,5 +1,6 @@
 package controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -29,11 +30,47 @@ public class DbController extends BaseZwsController {
 		ApplicationContext context = 
         new ClassPathXmlApplicationContext("applicationContext.xml");
         service = (DonjonItemService) context.getBean("donjonItemService");
+        String modeString = request.getParameter("mode");
+        String versionString = request.getParameter("ver");
         
 		ModelAndView view = getDefaultModelAndView(request, response);
 		view.addObject("page_info", "DBテストページ");
-		List<DonjonEquItem> itemList = service.queryEquItemVersion(1);
 		
+		List<DonjonEquItem> itemList = new ArrayList<DonjonEquItem>();
+		
+		try {
+			Integer.parseInt(modeString);
+			Integer.parseInt(versionString);
+		} catch (Exception e) {
+			modeString=null;
+			versionString=null;
+		}
+		
+		if(modeString!=null && versionString!=null){
+			switch (Integer.parseInt(modeString)) {
+			case 1:
+				itemList = service.queryEquItemAll();
+				break;
+			case 2:
+				itemList = service.queryEquItemVersion(Integer.parseInt(versionString));
+				break;
+			case 3:
+				itemList = service.queryEquItemVersionTo(Integer.parseInt(versionString));
+				break;
+			case 4:
+				itemList = service.queryItemAll();
+				break;
+			case 5:
+				itemList = service.queryItemVersion(Integer.parseInt(versionString));
+				break;
+			case 6:
+				itemList = service.queryItemVersionTo(Integer.parseInt(versionString));
+				break;
+			default:
+				itemList = service.queryEquItemVersion(0);
+				break;
+			}	
+		}
 		view.addObject("page_contents", (getItemListForTableString(itemList)));
 		return view;
 	}

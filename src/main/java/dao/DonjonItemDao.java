@@ -7,8 +7,13 @@ public interface DonjonItemDao {
     void insert(DonjonEquItem item);
 
     DonjonEquItem queryDetailId(int itemDetailId);
+    List<DonjonEquItem> queryItemAll();
     List<DonjonEquItem> queryItemVersion(int itemVersionId);
     List<DonjonEquItem> queryItemVersionToVersion(int itemVersionId);
+    
+    List<DonjonEquItem> queryEquItemAll();
+    List<DonjonEquItem> queryEquItemVersion(int itemVersionId);
+    List<DonjonEquItem> queryEquItemVersionToVersion(int itemVersionId);
     
     void update(DonjonEquItem item);
 
