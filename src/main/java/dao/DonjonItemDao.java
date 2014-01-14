@@ -15,6 +15,9 @@ public interface DonjonItemDao {
     List<DonjonEquItem> queryEquItemVersion(int itemVersionId);
     List<DonjonEquItem> queryEquItemVersionToVersion(int itemVersionId);
     
+    int queryEquItemMaxVersion();
+    int queryItemMaxVersion();
+    
     void update(DonjonEquItem item);
 
     void delete(int itemDetailId);

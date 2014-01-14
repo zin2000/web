@@ -173,4 +173,16 @@ implements ParameterizedRowMapper<DonjonEquItem> {
 		// TODO Auto-generated method stub
 		
 	}
+
+	@Override
+	public int queryEquItemMaxVersion() {
+		// TODO Auto-generated method stub
+		return getSimpleJdbcTemplate().queryForInt(findSql("SELECT_MAX_EQU_ITEM_VERSION"));
+	}
+
+	@Override
+	public int queryItemMaxVersion() {
+		// TODO Auto-generated method stub
+		return getSimpleJdbcTemplate().queryForInt(findSql("SELECT_MAX_ITEM_VERSION"));
+	}
 }

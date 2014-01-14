@@ -15,4 +15,7 @@ public interface DonjonItemService {
 	List<DonjonEquItem> queryItemVersionTo(int itemVersionId);
 
 	List<DonjonEquItem> queryItemAll();
+	
+	int queryItemMaxVersion();
+	int queryEquItemMaxVersion();
 }

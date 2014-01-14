@@ -46,4 +46,14 @@ public class DonjonItemServiceImpl implements DonjonItemService {
 	public List<DonjonEquItem> queryItemAll() {
 		return this.itemDao.queryItemAll();
 	}
+
+	@Override
+	public int queryItemMaxVersion() {
+		return this.itemDao.queryItemMaxVersion();
+	}
+
+	@Override
+	public int queryEquItemMaxVersion() {
+		return this.itemDao.queryEquItemMaxVersion();
+	}
 }

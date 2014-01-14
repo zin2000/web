@@ -8,10 +8,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.validation.BindException;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.apache.commons.codec.binary.Base64;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.SimpleFormController;
@@ -33,6 +31,14 @@ public class FileUploadController extends SimpleFormController {
       //file.transferTo(new File("D:/tmp/アップロード.txt"));
       //file.transferTo(new File("../webapps/zins-work-shop/resources/img/アップロード.txt"));
     	String time = String.valueOf(new Date().getTime());
+    	
+        try {
+            final String base64 =new String(Base64.encodeBase64(file.getBytes()));
+        } catch (Exception e){
+        	
+        }
+    	
+    	file.getBytes();
     	file.transferTo(new File("/usr/share/tomcat6/webapps/zins-work-shop/resources/img/アップロード_"+name1+time+".txt"));
     	file2.transferTo(new File("/usr/share/tomcat6/webapps/zins-work-shop/resources/img/アップロード_"+name2+time+".txt"));
     	request.setAttribute("name1", request.getParameter("name1"));
@@ -40,6 +46,7 @@ public class FileUploadController extends SimpleFormController {
     	request.setAttribute("type", request.getParameter("submit"));
     }
     request.setAttribute("upload1", "");
+    new ModelAndView(getSuccessView());
     return super.onSubmit(request, response, command, bind);
   }
 }

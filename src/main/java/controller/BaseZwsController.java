@@ -20,4 +20,12 @@ public abstract class BaseZwsController implements Controller {
 		view.addObject("user_agent", request.getHeader("User-Agent"));
 		return view;
 	}
+	
+	public ModelAndView getXmlModelAndView(HttpServletRequest request, HttpServletResponse response){
+		//リクエスト情報のひな形の作成
+		ModelAndView view = new ModelAndView("xml");
+		view.addObject("footer_info", "Copyright (c) 2013 zins work shop. All Rights Reserved <a href='/index.html'>土竜庵TOPへ</a>");
+		view.addObject("user_agent", request.getHeader("User-Agent"));
+		return view;
+	}
 }

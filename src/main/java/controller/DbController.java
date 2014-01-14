@@ -32,12 +32,9 @@ public class DbController extends BaseZwsController {
         service = (DonjonItemService) context.getBean("donjonItemService");
         String modeString = request.getParameter("mode");
         String versionString = request.getParameter("ver");
-        
-		ModelAndView view = getDefaultModelAndView(request, response);
-		view.addObject("page_info", "DBテストページ");
 		
 		List<DonjonEquItem> itemList = new ArrayList<DonjonEquItem>();
-		
+		ModelAndView view = null;
 		try {
 			Integer.parseInt(modeString);
 			Integer.parseInt(versionString);
@@ -50,28 +47,52 @@ public class DbController extends BaseZwsController {
 			switch (Integer.parseInt(modeString)) {
 			case 1:
 				itemList = service.queryEquItemAll();
+				view = getXmlModelAndView(request, response);
+				view.addObject("page_contents", (getItemListForXmlString(itemList)));
 				break;
 			case 2:
 				itemList = service.queryEquItemVersion(Integer.parseInt(versionString));
+				view = getXmlModelAndView(request, response);
+				view.addObject("page_contents", (getItemListForXmlString(itemList)));
 				break;
 			case 3:
 				itemList = service.queryEquItemVersionTo(Integer.parseInt(versionString));
+				view = getXmlModelAndView(request, response);
+				view.addObject("page_contents", (getItemListForXmlString(itemList)));
 				break;
 			case 4:
 				itemList = service.queryItemAll();
+				view = getXmlModelAndView(request, response);
+				view.addObject("page_contents", (getItemListForXmlString(itemList)));
 				break;
 			case 5:
 				itemList = service.queryItemVersion(Integer.parseInt(versionString));
+				view = getXmlModelAndView(request, response);
+				view.addObject("page_contents", (getItemListForXmlString(itemList)));
 				break;
 			case 6:
 				itemList = service.queryItemVersionTo(Integer.parseInt(versionString));
+				view = getXmlModelAndView(request, response);
+				view.addObject("page_contents", (getItemListForXmlString(itemList)));
+				break;
+			case 7:
+				int dbv = service.queryItemMaxVersion();
+				view = getXmlModelAndView(request, response);
+				view.addObject("page_contents", (getItemListForXmlString(dbv)));
+				break;
+			case 8:
+				int dbv_e = service.queryEquItemMaxVersion();
+				view = getXmlModelAndView(request, response);
+				view.addObject("page_contents", (getItemListForXmlString(dbv_e)));
 				break;
 			default:
 				itemList = service.queryEquItemVersion(0);
+				view = getDefaultModelAndView(request, response);
+				view.addObject("page_info", "DBテストページ");
+				view.addObject("page_contents", (getItemListForTableString(itemList)));
 				break;
 			}	
 		}
-		view.addObject("page_contents", (getItemListForTableString(itemList)));
 		return view;
 	}
     @RequestMapping(value = "/register", method = RequestMethod.GET)
@@ -103,5 +124,45 @@ public class DbController extends BaseZwsController {
 		sb.append("</table>");
 		return sb.toString();
 	}
-
+	
+	/**
+	 * @param itemList
+	 */
+	public String getItemListForXmlString(List<DonjonEquItem> itemList) {
+		StringBuffer sb = new StringBuffer("<data>");
+		for(DonjonEquItem item : itemList){
+			sb.append("<row>");
+			sb.append("<item_detail_id>"+String.format("%1$08d", item.getItemDetailId())+"</item_detail_id>");
+			sb.append("<item_type_id>"+item.getItemTypeId()+"</item_type_id>");
+			sb.append("<item_img_id>"+item.getItemImgId()+"</item_img_id>");
+			sb.append("<item_name>"+item.getItemName()+"</item_name>");
+			sb.append("<point>"+item.getPoint()+"</point>");
+			sb.append("<skill_id>"+item.getSkillId()+"</skill_id>");
+			if(item.isEquFlag()){
+				sb.append("<equ_flag>1</equ_flag>");
+			}else{
+				sb.append("<equ_flag>0</equ_flag>");
+			}
+			sb.append("<use_count>"+item.getUseCount()+"</use_count>");
+			sb.append("<item_type_name>"+item.getItemTypeName()+"</item_type_name>");
+			sb.append("<item_img_binary>"+item.getItemImgBinary()+"</item_img_binary>");
+			sb.append("<item_img_mime>"+item.getItemImgMime()+"</item_img_mime>");
+			sb.append("<item_version>"+item.getItemVersion()+"</item_version>");
+			sb.append("</row>");
+		}
+		sb.append("</data>");
+		return sb.toString();
+	}
+	
+	/**
+	 * @param itemList
+	 */
+	public String getItemListForXmlString(int itemVersion) {
+		StringBuffer sb = new StringBuffer("<data>");
+		sb.append("<row>");
+		sb.append("<item_version>"+itemVersion+"</item_version>");
+		sb.append("</row>");
+		sb.append("</data>");
+		return sb.toString();
+	}
 }
