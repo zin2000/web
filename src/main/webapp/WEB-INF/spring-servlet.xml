@@ -14,6 +14,7 @@
    <bean name="/info" class="controller.InfoController"></bean>
    <bean name="/gallery" class="controller.GalleryController"></bean>
    <bean name="/oldcoin" class="controller.OldCoinController"></bean>
+   <bean name="/oldcoinmaster" class="controller.OldCoinMasterController"></bean>
    <bean name="/xstitch" class="controller.XstitchController"></bean>
    <bean name="/game" class="controller.GameController"></bean>
    <bean name="/db" class="controller.DbController"></bean>
