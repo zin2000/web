@@ -48,6 +48,6 @@
 	</bean>
 	
 	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-	<property name="location" value="jdbc.properties" />
+	<property name="location" value="/WEB-INF/jdbc.properties" />
 	</bean>
 </beans>

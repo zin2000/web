@@ -17,6 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 import dto.DonjonEquItem;
 
 import service.DonjonItemService;
+import service.OldcoinService;
 /**
  * @author jin-s
  *
@@ -27,8 +28,8 @@ public class DbController extends BaseZwsController {
 	 */
 	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		DonjonItemService service;
-		ApplicationContext context = 
-        new ClassPathXmlApplicationContext("applicationContext.xml");
+		ApplicationContext context = getApplicationContext();
+        //new ClassPathXmlApplicationContext("applicationContext.xml");
         service = (DonjonItemService) context.getBean("donjonItemService");
         String modeString = request.getParameter("mode");
         String versionString = request.getParameter("ver");

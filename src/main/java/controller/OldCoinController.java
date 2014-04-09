@@ -5,12 +5,15 @@ package controller;
 
 import java.util.List;
 
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.validation.BindException;
+import org.springframework.web.context.WebApplicationContext;
+import org.springframework.web.context.support.WebApplicationContextUtils;
 import org.springframework.web.servlet.ModelAndView;
 
 import service.DonjonItemService;
@@ -30,8 +33,11 @@ public class OldCoinController extends BaseZwsController {
 	 */
 	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		OldcoinService service;
-		ApplicationContext context = 
-        new ClassPathXmlApplicationContext("applicationContext.xml");
+		//ApplicationContext context = getApplicationContext();
+		ServletContext sv_context = request.getSession().getServletContext();
+		WebApplicationContext context = WebApplicationContextUtils
+		.getRequiredWebApplicationContext(sv_context);
+        //new ClassPathXmlApplicationContext("applicationContext.xml");
         service = (OldcoinService) context.getBean("oldcoinService");
 		
 		ModelAndView view = getDefaultModelAndView(request, response);

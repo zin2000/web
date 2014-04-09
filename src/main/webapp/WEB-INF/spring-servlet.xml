@@ -10,22 +10,24 @@
 	<property name="username" value="root" />
 	<property name="password" value="admin" />
    </bean>
-   <bean name="/top" class="controller.TopController"></bean>
-   <bean name="/info" class="controller.InfoController"></bean>
-   <bean name="/gallery" class="controller.GalleryController"></bean>
-   <bean name="/oldcoin" class="controller.OldCoinController"></bean>
-   <bean name="/oldcoinmaster" class="controller.OldCoinMasterController"></bean>
-   <bean name="/xstitch" class="controller.XstitchController"></bean>
-   <bean name="/game" class="controller.GameController"></bean>
-   <bean name="/db" class="controller.DbController"></bean>
+   <bean name="/main" class="controller.MainController"></bean>
+   <bean name="/zins-work-shop/top" class="controller.TopController"></bean>
+   <bean name="/zins-work-shop/info" class="controller.InfoController"></bean>
+   <bean name="/zins-work-shop/gallery" class="controller.GalleryController"></bean>
+   <bean name="/zins-work-shop/oldcoin" class="controller.OldCoinController"></bean>
+   <bean name="/zins-work-shop/oldcoinmaster" class="controller.OldCoinMasterController"></bean>
+   <bean name="/zins-work-shop/xstitch" class="controller.XstitchController"></bean>
+   <bean name="/zins-work-shop/game" class="controller.GameController"></bean>
+   <bean name="/zins-work-shop/db" class="controller.DbController"></bean>
 
   <!-- (3)リクエスト・コントローラの設定  -->
-  <bean name="/admin/upload" id="fileUploadController"
+  <bean name="/zins-work-shop/admin/upload" id="fileUploadController"
     class="controller.FileUploadController">
     <property name="formView" value="inputFile" />
     <property name="successView" value="finishUpload" />
     <property name="commandClass" value="io.FileUploadCommand" />
   </bean>
+  <bean name="/zins-work-shop/admin/db" class="controller.DbController"></bean>
 
   <!-- (4)マルチパート・サポートの設定 -->
   <bean id="multipartResolver" class=

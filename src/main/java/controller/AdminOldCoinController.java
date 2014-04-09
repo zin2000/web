@@ -30,8 +30,8 @@ public class AdminOldCoinController extends BaseZwsController {
 	 */
 	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		OldcoinService service;
-		ApplicationContext context = 
-        new ClassPathXmlApplicationContext("applicationContext.xml");
+		ApplicationContext context = getApplicationContext();
+        //new ClassPathXmlApplicationContext("applicationContext.xml");
         service = (OldcoinService) context.getBean("oldcoinService");
 		
 		ModelAndView view = getDefaultModelAndView(request, response);
