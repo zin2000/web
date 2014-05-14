@@ -44,35 +44,30 @@ if(userAgentName.equals("")){
 	userAgentName = "Other?";
 }
 if(isMobile){%>
-<jsp:include page="/WEB-INF/jsp/menu_h_m.jsp" flush="true" />
+<jsp:include page="/WEB-INF/jsp/menuMobile_h.jsp" flush="true" />
 <%}else{%>
 <jsp:include page="/WEB-INF/jsp/menu_h.jsp" flush="true" />
 <%}%>
 </head>
 <body bgcolor="white">
-<div id="wrap">
+<br />
+<br />
+<div>
 <%if(isMobile){%>
 <jsp:include page="/WEB-INF/jsp/menuMobile.jsp" flush="true" />
 <%}else{%>
 <jsp:include page="/WEB-INF/jsp/menuMobile.jsp" flush="true" />
 <%}%>
-	<div class="container">
-	    <div class="well">
-			<h3><%=pageInfo%></h3>
-			<div class="row">
-				<div class="col-lg-4">
-				<%=pageContents%>
-				</div>
-			</div>
-		</div>
-	</div>
+ <div data-role="content" id="content">
+  <p><%=pageInfo%></p>
+  <p><%=pageContents%></p>
+ </div>
  <br />
  <br />
-</div>
-<!-- フッターは#wrapの外に -->
-<div id="footer">
- <div class="container">
-  <%="your access from "%><%=userAgentName%><%=" "%><%=footerInfo%>
+ <div id="globalfooter">
+  <ul id="footermenu">
+   <li><%="your access from "%><%=userAgentName%><%=" "%><%=footerInfo%></li>
+  </ul>
  </div>
 </div>
 </body>

@@ -90,7 +90,7 @@ public class OldCoinController extends BaseZwsController {
 	 * @param itemList
 	 */
 	public String getItemListForTableString(List<OldcoinDetail> itemList) {
-		StringBuffer sb = new StringBuffer("<table border='1'><tr><td>ID</td><td>追加日</td><td>名前</td><td>画像表</td><td>画像裏</td><td>書体</td><td>素材</td><td>鋳造年</td></tr>");
+		StringBuffer sb = new StringBuffer("<table class=\"table table-hover\" border=\"1\"><tr><td>ID</td><td>追加日</td><td>名前</td><td>画像表</td><td>画像裏</td><td>書体</td><td>素材</td><td>鋳造年</td></tr>");
 		for(OldcoinDetail item : itemList){
 			sb.append("<tr>");
 			sb.append("<td>"+item.getDetailId()+"</td>");

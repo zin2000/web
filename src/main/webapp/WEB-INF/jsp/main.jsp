@@ -52,9 +52,7 @@ if(isMobile){%>
 <body bgcolor="white">
 <div id="wrap">
 <%if(isMobile){%>
-<jsp:include page="/WEB-INF/jsp/menuMobile.jsp" flush="true" />
 <%}else{%>
-<jsp:include page="/WEB-INF/jsp/menuMobile.jsp" flush="true" />
 <%}%>
 	<div class="container">
 	    <div class="well">

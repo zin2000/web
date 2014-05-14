@@ -17,7 +17,7 @@ public class MainController extends BaseZwsController {
 	 * @see org.springframework.web.servlet.mvc.Controller#handleRequest(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse)
 	 */
 	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		ModelAndView view = getDefaultModelAndView(request, response);
+		ModelAndView view = getMainModelAndView(request, response);
 		view.addObject("page_info", "mainページ");
 		view.addObject("page_contents", "<a href='/portal/main/zins-work-shop/top'>zin's work shop TOPへ</a>");
 		return view;
