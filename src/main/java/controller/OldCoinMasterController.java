@@ -67,6 +67,8 @@ public class OldCoinMasterController extends BaseZwsController {
 			sb.append(getItemListForTableString(beanList));
 			//view.addObject("page_contents", (getItemListForTableString(beanList))+sb.toString());
 		}
+		sb.append("<h3>穴銭検索方法</h3><p>不明な名称は[？](ワイルドカード)を選択して検索します<br />※例：<br />選択：[？][？][通][寶]<br />結果：○○通寶<br /><br />存在しない組み合わせの場合は結果は出力されません<br /></p>");
+		
 		view.addObject("page_contents", (getFormString(select1,select2,select3,select4,cs))+sb.toString());
 		return view;
 	}

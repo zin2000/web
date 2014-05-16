@@ -19,4 +19,3 @@
 <script src="<c:url value="/resources/js/respond.js" />"></script>
 <![endif]-->
 <script src="<c:url value="/resources/js/bootstrap.min.js" />"></script>
-<title>zin's work shop</title>

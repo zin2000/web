@@ -14,6 +14,7 @@
 	java.lang.String[] userAgentNameList = {"MSIE","Chrome","Lunascape","Netscape","Firefox","Safari","Opera"};%>
 <html>
 <head>
+<title>zin's work shop - <%=pageInfo%> -</title>
 <%if(userAgentName.equals("")){
   for(String userAgentIs : userAgentNameMobileList){
     if(userAgent.indexOf(userAgentIs) > -1){
