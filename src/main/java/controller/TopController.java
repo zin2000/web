@@ -19,6 +19,7 @@ public class TopController extends BaseZwsController {
 	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ModelAndView view = getDefaultModelAndView(request, response);
 		view.addObject("page_info", "TOPページ");
+		view.addObject("page_contents", "管理人ことzinの趣味のサイトです。<br />穴銭（渡来銭）の検索や、マイコレクションの紹介が現在のコンテンツです（今後拡充予定^^；）");
 		return view;
 	}
 

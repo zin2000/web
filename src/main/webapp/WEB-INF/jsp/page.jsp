@@ -58,6 +58,44 @@ if(isMobile){%>
 <jsp:include page="/WEB-INF/jsp/menuMobile.jsp" flush="true" />
 <%}%>
 	<div class="container">
+
+	<div id="well">
+<section class="visible-xs text-center adsense_1">
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- モバイル5 -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:336px;height:280px"
+     data-ad-client="ca-pub-3910332370256182"
+     data-ad-slot="7729934152"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</section></p>
+<section class="visible-sm text-center adsense_1">
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+	<!-- ado2 -->
+	<ins class="adsbygoogle"
+	     style="display:inline-block;width:728px;height:90px"
+	     data-ad-client="ca-pub-3910332370256182"
+	     data-ad-slot="4432584957"></ins>
+	<script>
+	(adsbygoogle = window.adsbygoogle || []).push({});
+	</script>
+</section></p>
+<section class="hidden-sm hidden-xs text-center adsense_1">
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- ラージビッグ -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:970px;height:90px"
+     data-ad-client="ca-pub-3910332370256182"
+     data-ad-slot="6370841759"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</section>
+	</div>
+
+<!--
 	    <div class="well">
 			<h3><%=pageInfo%></h3>
 			<div class="row">
@@ -66,11 +104,61 @@ if(isMobile){%>
 				</div>
 			</div>
 		</div>
+-->
+    <div class="panel panel-success">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%=pageInfo%></h3>
+      </div>
+      <div class="panel-body">
+        <%=pageContents%>
+      </div>
+    </div>
+	<div id="well">
+
+<section class="visible-xs text-center adsense_1">
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- モバイル5 -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:336px;height:280px"
+     data-ad-client="ca-pub-3910332370256182"
+     data-ad-slot="7729934152"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</section></p>
+<section class="visible-sm text-center adsense_1">
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+	<!-- ado2 -->
+	<ins class="adsbygoogle"
+	     style="display:inline-block;width:728px;height:90px"
+	     data-ad-client="ca-pub-3910332370256182"
+	     data-ad-slot="4432584957"></ins>
+	<script>
+	(adsbygoogle = window.adsbygoogle || []).push({});
+	</script>
+</section></p>
+<section class="hidden-sm hidden-xs text-center adsense_1">
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- ラージビッグ -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:970px;height:90px"
+     data-ad-client="ca-pub-3910332370256182"
+     data-ad-slot="6370841759"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</section>
+	</div>
+
 	</div>
  <br />
  <br />
+
 </div>
 <!-- フッターは#wrapの外に -->
+
+
+
 <div id="footer">
  <div class="container">
   <%="your access from "%><%=userAgentName%><%=" "%><%=footerInfo%>

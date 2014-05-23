@@ -1,13 +1,15 @@
-<%@ page session="false" %>
+﻿<%@ page session="false" %>
 <%@ page pageEncoding="UTF-8" isELIgnored="false"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
     <header>
         <nav class="navbar navbar-default" role="navigation">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
+            <!--  
             	<a href="<c:url value='../j_spring_security_logout' />">
 					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">Logout</button>
                 </a>
+            -->
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">Menu</button>
                  <a class="navbar-brand" href="/portal/main/zins-work-shop/top">Zin's Work Shop</a><br>
             </div>
@@ -24,10 +26,10 @@
 				        </ul>
 				    </li> -->
 				    <li class="dropdown">
-				        <a href="#" class="dropdown-toggle" data-toggle="dropdown">古銭 <b class="caret"></b></a>
+				        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="<c:url value="/resources/img/menu_kosen.png" />">　古銭 <b class="caret"></b></a>
 				        <ul class="dropdown-menu">
-				        	<li><a href="/portal/main/zins-work-shop/oldcoin">マイコレクション</a></li>
-				            <li><a href="/portal/main/zins-work-shop/oldcoinmaster">渡来銭検索</a></li>
+				        	<li><a href="/portal/main/zins-work-shop/oldcoin"><i class="glyphicon glyphicon-list"></i>　マイコレクション</a></li>
+				            <li><a href="/portal/main/zins-work-shop/oldcoinmaster"><i class="glyphicon glyphicon-search"></i>　渡来銭検索</a></li>
 				        </ul>
 				    </li>
 				    <!-- <li class="dropdown">

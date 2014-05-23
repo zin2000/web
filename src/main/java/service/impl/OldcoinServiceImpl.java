@@ -7,6 +7,7 @@ import service.OldcoinService;
 import dao.OldcoinDao;
 import dto.OldcoinCharacter;
 import dto.OldcoinDetail;
+import dto.OldcoinKeyword;
 import dto.OldcoinMaster;
 
 public class OldcoinServiceImpl implements OldcoinService {
@@ -58,5 +59,15 @@ public class OldcoinServiceImpl implements OldcoinService {
 	@Override
 	public List<OldcoinCharacter> findCoinCharacter4() {
 		return getOldcoinDao().findCoinCharacter4();
+	}
+	
+	@Override
+	public List<OldcoinKeyword> findCoinKeywordName(String keyName) {
+		return getOldcoinDao().findCoinKeyName(keyName);
+	}
+	
+	@Override
+	public List<OldcoinKeyword> findCoinKeywordNote(String keyName) {
+		return getOldcoinDao().findCoinKeyNote(keyName);
 	}
 }

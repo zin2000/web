@@ -11,6 +11,7 @@ import dto.Bumon;
 import dto.DonjonEquItem;
 import dto.OldcoinCharacter;
 import dto.OldcoinDetail;
+import dto.OldcoinKeyword;
 import dto.OldcoinMaster;
 
 @SuppressWarnings("deprecation")
@@ -73,6 +74,18 @@ public class OldcoinDaoImpl extends BaseJdbcDaoImpl implements OldcoinDao {
     			new CoinCharacterRowMapper()
     			);
     }
+	
+	public List<OldcoinKeyword> findCoinKeyName(String keyName) {
+    	return getSimpleJdbcTemplate().query(findSql("SELECT_KEY_NAME"),
+    			new CoinKeywordRowMapper(),
+    			keyName,keyName);
+    }
+	
+	public List<OldcoinKeyword> findCoinKeyNote(String keyName) {
+    	return getSimpleJdbcTemplate().query(findSql("SELECT_KEY_NOTE"),
+    			new CoinKeywordRowMapper(),
+    			"%"+keyName+"%","%"+keyName+"%","%"+keyName+"%");
+    }
 
     static class CoinDetailRowMapper 
 implements ParameterizedRowMapper<OldcoinDetail> {
@@ -101,6 +114,18 @@ implements ParameterizedRowMapper<OldcoinMaster> {
         	bean.setStartYear(rs.getInt("start_year"));
         	bean.setEndtYear(rs.getInt("end_year"));
         	bean.setNote(rs.getString("note"));
+            return bean;
+        }
+    }
+    
+    static class CoinKeywordRowMapper 
+implements ParameterizedRowMapper<OldcoinKeyword> {
+        public OldcoinKeyword mapRow(ResultSet rs, int rowNum) throws SQLException {
+        	OldcoinKeyword bean = new OldcoinKeyword();
+        	bean.setKeyId(rs.getInt("keyword_id"));
+        	bean.setKeyKana(rs.getString("keyword_kana"));
+        	bean.setKeyName(rs.getString("keyword_name"));
+        	bean.setKeyNote(rs.getString("keyword_note"));
             return bean;
         }
     }

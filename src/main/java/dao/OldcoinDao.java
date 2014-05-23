@@ -5,6 +5,7 @@ import java.util.List;
 import dto.DonjonEquItem;
 import dto.OldcoinCharacter;
 import dto.OldcoinDetail;
+import dto.OldcoinKeyword;
 import dto.OldcoinMaster;
 
 public interface OldcoinDao {
@@ -28,4 +29,7 @@ public interface OldcoinDao {
     List<OldcoinCharacter> findCoinCharacter2();
     List<OldcoinCharacter> findCoinCharacter3();
     List<OldcoinCharacter> findCoinCharacter4();
+    
+	List<OldcoinKeyword> findCoinKeyName(String keyName);
+	List<OldcoinKeyword> findCoinKeyNote(String keyName);
 }

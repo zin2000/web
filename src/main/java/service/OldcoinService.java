@@ -4,6 +4,7 @@ import java.util.List;
 
 import dto.OldcoinCharacter;
 import dto.OldcoinDetail;
+import dto.OldcoinKeyword;
 import dto.OldcoinMaster;
 
 public interface OldcoinService {
@@ -17,4 +18,6 @@ public interface OldcoinService {
     List<OldcoinCharacter> findCoinCharacter2();
     List<OldcoinCharacter> findCoinCharacter3();
     List<OldcoinCharacter> findCoinCharacter4();
+	List<OldcoinKeyword> findCoinKeywordName(String keyName);
+	List<OldcoinKeyword> findCoinKeywordNote(String keyName);
 }

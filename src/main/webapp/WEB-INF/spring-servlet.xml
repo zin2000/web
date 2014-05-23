@@ -16,6 +16,7 @@
    <bean name="/zins-work-shop/gallery" class="controller.GalleryController"></bean>
    <bean name="/zins-work-shop/oldcoin" class="controller.OldCoinController"></bean>
    <bean name="/zins-work-shop/oldcoinmaster" class="controller.OldCoinMasterController"></bean>
+   <bean name="/zins-work-shop/oldcoinkeyword" class="controller.OldCoinKeywordController"></bean>
    <bean name="/zins-work-shop/xstitch" class="controller.XstitchController"></bean>
    <bean name="/zins-work-shop/game" class="controller.GameController"></bean>
    <bean name="/zins-work-shop/db" class="controller.DbController"></bean>
