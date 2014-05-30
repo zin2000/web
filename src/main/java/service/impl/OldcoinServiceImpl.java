@@ -30,6 +30,11 @@ public class OldcoinServiceImpl implements OldcoinService {
 	public List<OldcoinDetail> queryPageDetailData(int page){
 		return getOldcoinDao().findPage(page);
 	}
+	
+	@Override
+	public OldcoinDetail queryMyDetailData(int id){
+		return getOldcoinDao().findMyDetail(id);
+	}
 
 	@Override
 	public int queryCountDetailAll() {

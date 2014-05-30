@@ -9,18 +9,12 @@ import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.validation.BindException;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 import org.springframework.web.servlet.ModelAndView;
 
-import service.DonjonItemService;
 import service.OldcoinService;
 
-import dao.jdbc.OldcoinDaoImpl;
-import dto.DonjonEquItem;
 import dto.OldcoinDetail;
 /**
  * @author jin-s
@@ -41,7 +35,7 @@ public class OldCoinController extends BaseZwsController {
         service = (OldcoinService) context.getBean("oldcoinService");
 		
 		ModelAndView view = getDefaultModelAndView(request, response);
-		view.addObject("page_info", "古銭ページ");
+		view.addObject("page_info", "マイコレクション古銭ページ");
 		String pageString = request.getParameter("page");
 		int page;
 		if(pageString == null || pageString.equals("")){
@@ -90,17 +84,40 @@ public class OldCoinController extends BaseZwsController {
 	 * @param itemList
 	 */
 	public String getItemListForTableString(List<OldcoinDetail> itemList) {
-		StringBuffer sb = new StringBuffer("<table class=\"table table-hover\" border=\"1\"><tr><td>ID</td><td>追加日</td><td>名前</td><td>画像表</td><td>画像裏</td><td>書体</td><td>素材</td><td>鋳造年</td></tr>");
+		StringBuffer sb = new StringBuffer("<table class=\"table table-hover\" border=\"1\"><tr>");
+		//sb.append("<td>ID</td><td>追加日</td>");
+		sb.append("<td>名前</td><td>画像表</td><td>画像裏</td>");
+		//sb.append("<td>書体</td><td>素材</td><td>鋳造年</td>");
+		sb.append("<td>詳細</td>");
+		sb.append("</tr>");
 		for(OldcoinDetail item : itemList){
 			sb.append("<tr>");
-			sb.append("<td>"+item.getDetailId()+"</td>");
-			sb.append("<td>"+item.getAddDate()+"</td>");
+			//sb.append("<td>"+item.getDetailId()+"</td>");
+			//sb.append("<td>"+item.getAddDate()+"</td>");
 			sb.append("<td>"+item.getName()+"</td>");
-			sb.append("<td><img src='"+item.getFrontImgUrl()+"' /></td>");
-			sb.append("<td><img src='"+item.getBackImgUrl()+"' /></td>");
-			sb.append("<td>"+item.getFontName()+"</td>");
-			sb.append("<td>"+item.getMaterialName()+"</td>");
-			sb.append("<td>"+item.getStartYear()+"～"+item.getEndtYear()+"</td>");
+			sb.append("<td>");
+			if(item.getFrontImgUrl()!=null){
+				sb.append("<a href=\""+item.getFrontImgUrl()+"\" >");
+				sb.append("<img src=\""+item.getFrontImgUrl()+"\" class=\"img-responsive\" />");
+				sb.append("</a>");
+			}
+			sb.append("</td>");
+			sb.append("<td>");
+			if(item.getBackImgUrl()!=null){
+				sb.append("<a href=\""+item.getBackImgUrl()+"\" >");
+				sb.append("<img src=\""+item.getBackImgUrl()+"\" class=\"img-responsive\" />");
+				sb.append("</a>");
+			}
+			sb.append("</td>");
+			sb.append("<td>");
+			sb.append("<form method='post' action='oldcoindetail'>").
+			append("<input type='hidden' name='id' value='"+item.getDetailId()+"'>").
+			append("<input type=submit name='submit' value='詳細' class='btn'>").
+			append("</form>");
+			sb.append("</td>");
+			//sb.append("<td>"+item.getFontName()+"</td>");
+			//sb.append("<td>"+item.getMaterialName()+"</td>");
+			//sb.append("<td>"+item.getStartYear()+"～"+item.getEndtYear()+"</td>");
 			sb.append("</tr>");
 		}
 		sb.append("</table>");

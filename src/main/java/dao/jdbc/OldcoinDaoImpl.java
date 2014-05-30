@@ -41,6 +41,12 @@ public class OldcoinDaoImpl extends BaseJdbcDaoImpl implements OldcoinDao {
                 new CoinDetailRowMapper(),
                 page);
     }
+	
+	public OldcoinDetail findMyDetail(int id){
+		return getSimpleJdbcTemplate().queryForObject(findSql("SELECT_COIN")+findSql("WHERE_ID"),
+                new CoinDetailRowMapper(),
+                id);
+    }
     
 	public int findCountAll() {
     	return getSimpleJdbcTemplate().queryForInt(findSql("SELECT_COUNT"));

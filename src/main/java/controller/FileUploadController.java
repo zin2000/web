@@ -39,8 +39,8 @@ public class FileUploadController extends SimpleFormController {
         }
     	
     	file.getBytes();
-    	file.transferTo(new File("/usr/share/tomcat6/webapps/zins-work-shop/resources/img/アップロード_"+name1+time+".txt"));
-    	file2.transferTo(new File("/usr/share/tomcat6/webapps/zins-work-shop/resources/img/アップロード_"+name2+time+".txt"));
+    	file.transferTo(new File("/var/www/html/upload/アップロード_"+name1+time+".jpg"));
+    	file2.transferTo(new File("/var/www/html/upload/アップロード_"+name2+time+".jpg"));
     	request.setAttribute("name1", request.getParameter("name1"));
     	request.setAttribute("name2", request.getParameter("name2"));
     	request.setAttribute("type", request.getParameter("submit"));

@@ -20,4 +20,5 @@ public interface OldcoinService {
     List<OldcoinCharacter> findCoinCharacter4();
 	List<OldcoinKeyword> findCoinKeywordName(String keyName);
 	List<OldcoinKeyword> findCoinKeywordNote(String keyName);
+	OldcoinDetail queryMyDetailData(int id);
 }

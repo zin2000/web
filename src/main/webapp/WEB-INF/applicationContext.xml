@@ -16,6 +16,7 @@
 	 <property name="url" value="jdbc:mysql://localhost/zwsdb" />
 	 <property name="username" value="root" />
 	 <property name="password" value="admin" />
+	 <property name="validationQuery" value="SELECT 1" />
 	</bean>
 	<!-- DAO -->
 	<bean id="bumonDao" class="dao.jdbc.BumonDaoImpl">

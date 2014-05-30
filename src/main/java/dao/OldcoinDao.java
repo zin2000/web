@@ -32,4 +32,6 @@ public interface OldcoinDao {
     
 	List<OldcoinKeyword> findCoinKeyName(String keyName);
 	List<OldcoinKeyword> findCoinKeyNote(String keyName);
+	
+	OldcoinDetail findMyDetail(int id);
 }

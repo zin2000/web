@@ -14,6 +14,11 @@
 	java.lang.String[] userAgentNameList = {"MSIE","Chrome","Lunascape","Netscape","Firefox","Safari","Opera"};%>
 <html>
 <head>
+<style type="text/css">
+<!--
+img.img-responsive { width:100%; max-width:320px;}
+-->
+</style>
 <title>zin's work shop - <%=pageInfo%> -</title>
 <%if(userAgentName.equals("")){
   for(String userAgentIs : userAgentNameMobileList){
@@ -57,42 +62,42 @@ if(isMobile){%>
 <%}else{%>
 <jsp:include page="/WEB-INF/jsp/menuMobile.jsp" flush="true" />
 <%}%>
-	<div class="container">
+	<div class="container-fluid">
 
 	<div id="well">
-<section class="visible-xs text-center adsense_1">
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- モバイル5 -->
-<ins class="adsbygoogle"
-     style="display:inline-block;width:336px;height:280px"
-     data-ad-client="ca-pub-3910332370256182"
-     data-ad-slot="7729934152"></ins>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-</section></p>
-<section class="visible-sm text-center adsense_1">
-	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-	<!-- ado2 -->
-	<ins class="adsbygoogle"
-	     style="display:inline-block;width:728px;height:90px"
-	     data-ad-client="ca-pub-3910332370256182"
-	     data-ad-slot="4432584957"></ins>
-	<script>
-	(adsbygoogle = window.adsbygoogle || []).push({});
-	</script>
-</section></p>
-<section class="hidden-sm hidden-xs text-center adsense_1">
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- ラージビッグ -->
-<ins class="adsbygoogle"
-     style="display:inline-block;width:970px;height:90px"
-     data-ad-client="ca-pub-3910332370256182"
-     data-ad-slot="6370841759"></ins>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-</section>
+		<section class="visible-xs text-center adsense_1">
+		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+		<!-- モバイル5 -->
+		<ins class="adsbygoogle"
+		     style="display:inline-block;width:336px;height:280px"
+		     data-ad-client="ca-pub-3910332370256182"
+		     data-ad-slot="7729934152"></ins>
+		<script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script>
+		</section></p>
+		<section class="visible-sm text-center adsense_1">
+			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+			<!-- ado2 -->
+			<ins class="adsbygoogle"
+			     style="display:inline-block;width:728px;height:90px"
+			     data-ad-client="ca-pub-3910332370256182"
+			     data-ad-slot="4432584957"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+		</section></p>
+		<section class="hidden-sm hidden-xs text-center adsense_1">
+		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+		<!-- ラージビッグ -->
+		<ins class="adsbygoogle"
+		     style="display:inline-block;width:970px;height:90px"
+		     data-ad-client="ca-pub-3910332370256182"
+		     data-ad-slot="6370841759"></ins>
+		<script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script>
+		</section>
 	</div>
 
 <!--
@@ -115,39 +120,39 @@ if(isMobile){%>
     </div>
 	<div id="well">
 
-<section class="visible-xs text-center adsense_1">
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- モバイル5 -->
-<ins class="adsbygoogle"
-     style="display:inline-block;width:336px;height:280px"
-     data-ad-client="ca-pub-3910332370256182"
-     data-ad-slot="7729934152"></ins>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-</section></p>
-<section class="visible-sm text-center adsense_1">
-	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-	<!-- ado2 -->
-	<ins class="adsbygoogle"
-	     style="display:inline-block;width:728px;height:90px"
-	     data-ad-client="ca-pub-3910332370256182"
-	     data-ad-slot="4432584957"></ins>
-	<script>
-	(adsbygoogle = window.adsbygoogle || []).push({});
-	</script>
-</section></p>
-<section class="hidden-sm hidden-xs text-center adsense_1">
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- ラージビッグ -->
-<ins class="adsbygoogle"
-     style="display:inline-block;width:970px;height:90px"
-     data-ad-client="ca-pub-3910332370256182"
-     data-ad-slot="6370841759"></ins>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-</section>
+		<section class="visible-xs text-center adsense_1">
+		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+		<!-- モバイル5 -->
+		<ins class="adsbygoogle"
+		     style="display:inline-block;width:336px;height:280px"
+		     data-ad-client="ca-pub-3910332370256182"
+		     data-ad-slot="7729934152"></ins>
+		<script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script>
+		</section></p>
+		<section class="visible-sm text-center adsense_1">
+			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+			<!-- ado2 -->
+			<ins class="adsbygoogle"
+			     style="display:inline-block;width:728px;height:90px"
+			     data-ad-client="ca-pub-3910332370256182"
+			     data-ad-slot="4432584957"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+		</section></p>
+		<section class="hidden-sm hidden-xs text-center adsense_1">
+		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+		<!-- ラージビッグ -->
+		<ins class="adsbygoogle"
+		     style="display:inline-block;width:970px;height:90px"
+		     data-ad-client="ca-pub-3910332370256182"
+		     data-ad-slot="6370841759"></ins>
+		<script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script>
+		</section>
 	</div>
 
 	</div>
